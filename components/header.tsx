@@ -1,77 +1,105 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { Link } from "@/i18n/navigation";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations("header");
 
-  const navigation = [
-    { name: "Accueil", href: "#home" },
-    { name: "À propos", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Partenaires", href: "#partners" },
-    { name: "Contact", href: "#contact" },
-  ]
+  const navigation = t.raw("navigation") as { label: string; href: string }[];
 
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img src="/weone-services-logo.jpg" alt="WeOne Services Logo" className="h-10 w-10 mr-3" />
+              <img
+                src={t("company.logo")}
+                alt={t("company.name")}
+                className="h-10 w-10 mr-3"
+              />
               <span className="text-2xl font-bold text-[#031e32]">
-                WeOne <span className="text-[#FF8200]">Services</span>
+                {t("company.name").split(" ")[0]}{" "}
+                <span className="text-[#FF8200]">
+                  {t("company.name").split(" ")[1]}
+                </span>
               </span>
             </Link>
           </div>
 
+          {/* Navigation Desktop */}
           <nav className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
+            {navigation.map((item, index) => (
               <Link
-                key={item.name}
+                key={index}
                 href={item.href}
                 className="text-[#031e32] hover:text-[#FF8200] transition-colors duration-200 font-medium"
               >
-                {item.name}
+                {item.label}
               </Link>
             ))}
           </nav>
 
+          {/* CTA Desktop */}
           <div className="hidden md:flex">
-            <Button className="bg-[#FF8200] hover:bg-[#ff9b33] text-white border-0">Nous contacter</Button>
+            <Link
+              href="#contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full bg-[#FF8200] px-4 py-2 text-sm rounded-md hover:bg-[#ff9b33] text-white border-0"
+            >
+              {t("cta")}
+            </Link>
           </div>
 
+          {/* Menu Mobile Toggle */}
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-              {navigation.map((item) => (
+              {navigation.map((item, index) => (
                 <Link
-                  key={item.name}
+                  key={index}
                   href={item.href}
                   className="block px-3 py-2 text-[#031e32] hover:text-[#FF8200] transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.name}
+                  {item.label}
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button className="w-full bg-[#FF8200] hover:bg-[#ff9b33] text-white border-0">Nous contacter</Button>
+                <Link
+                  href="#contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full bg-[#FF8200] px-4 py-2 text-sm rounded-md hover:bg-[#ff9b33] text-white border-0"
+                >
+                  {t("cta")}
+                </Link>
               </div>
             </div>
           </div>
         )}
       </div>
     </header>
-  )
+  );
 }

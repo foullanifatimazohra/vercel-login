@@ -1,22 +1,27 @@
-import Link from "next/link"
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react"
+import { Link } from "@/i18n/navigation";
+import {
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export function Footer() {
-  const services = ["Incubateur/Accélérateur", "Coworking Space", "Formations", "Conseil & Assistance"]
+export async function Footer() {
+  const t = await getTranslations("footer");
 
-  const quickLinks = [
-    { name: "À propos", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Partenaires", href: "#partners" },
-    { name: "Contact", href: "#contact" },
-  ]
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-  ]
+  const services = t.raw("services.items") as { label: string; href: string }[];
+  const quickLinks = t.raw("quickLinks.items") as {
+    label: string;
+    href: string;
+  }[];
+  const socialLinks = t.raw("social.links") as {
+    label: string;
+    href: string;
+  }[];
 
   return (
     <footer className="bg-[#031e32] text-white">
@@ -25,30 +30,42 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center text-2xl font-bold mb-4">
-              <img src="/weone-services-logo.jpg" alt="WeOne Services Logo" className="h-8 w-8 mr-3" />
-              WeOne <span className="text-[#FF8200]">Services</span>
+              <img
+                src={t("company.logo")}
+                alt={t("company.name")}
+                className="h-8 w-8 mr-3"
+              />
+              {t("company.name").split(" ")[0]}{" "}
+              <span className="text-[#FF8200]">
+                {t("company.name").split(" ")[1]}
+              </span>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              Votre partenaire de confiance pour l'innovation et la croissance entrepreneuriale en Algérie.
+              {t("company.description")}
             </p>
             <div className="space-y-2">
               <div className="flex items-start text-sm text-gray-300">
                 <MapPin className="h-4 w-4 mr-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
-                <span>Cité AADL 416 Logt. Gué de Constantine, Bat S01, Kouba – Alger (16055)</span>
+                <span>{t("company.address")}</span>
               </div>
               <div className="flex items-start text-sm text-gray-300">
                 <Phone className="h-4 w-4 mr-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
                 <div>
-                  <div>+213 (0) 23 53 51 13</div>
-                  <div>+213 (0) 555 777 289</div>
-                  <div>+213 (0) 774 244 459</div>
+                  {t
+                    .raw("company.phones")
+                    .map((phone: string, index: number) => (
+                      <div key={index}>{phone}</div>
+                    ))}
                 </div>
               </div>
               <div className="flex items-start text-sm text-gray-300">
                 <Mail className="h-4 w-4 mr-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
                 <div>
-                  <div>contact@weoneservices.dz</div>
-                  <div>contact@weoneit.net</div>
+                  {t
+                    .raw("company.emails")
+                    .map((email: string, index: number) => (
+                      <div key={index}>{email}</div>
+                    ))}
                 </div>
               </div>
             </div>
@@ -56,15 +73,17 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Nos Services</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("services.title")}
+            </h3>
             <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={index}>
                   <Link
-                    href="#services"
+                    href={service.href}
                     className="text-gray-300 hover:text-[#FF8200] transition-colors duration-200 text-sm"
                   >
-                    {service}
+                    {service.label}
                   </Link>
                 </li>
               ))}
@@ -73,7 +92,9 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Liens Rapides</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("quickLinks.title")}
+            </h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -81,7 +102,7 @@ export function Footer() {
                     href={link.href}
                     className="text-gray-300 hover:text-[#FF8200] transition-colors duration-200 text-sm"
                   >
-                    {link.name}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -90,39 +111,56 @@ export function Footer() {
 
           {/* Newsletter & Social */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Restez connecté</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("social.title")}</h3>
             <p className="text-gray-300 text-sm mb-4">
-              Suivez-nous sur les réseaux sociaux pour ne rien manquer de nos actualités.
+              {t("social.description")}
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <Link
-                  key={index}
-                  href={social.href}
-                  className="bg-[#354b5b] p-2 rounded-lg hover:bg-[#FF8200] transition-colors duration-200"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5" />
-                </Link>
-              ))}
+              {socialLinks.map((social, index) => {
+                const Icon =
+                  social.label === "Facebook"
+                    ? Facebook
+                    : social.label === "Twitter"
+                    ? Twitter
+                    : social.label === "LinkedIn"
+                    ? Linkedin
+                    : Instagram;
+
+                return (
+                  <Link
+                    key={index}
+                    href={social.href}
+                    className="bg-[#354b5b] p-2 rounded-lg hover:bg-[#FF8200] transition-colors duration-200"
+                    aria-label={social.label}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 text-sm">© {new Date().getFullYear()} WeOne Services. Tous droits réservés.</p>
+            <p className="text-gray-300 text-sm">{t("legal.copyright")}</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="text-gray-300 hover:text-[#FF8200] text-sm transition-colors duration-200">
-                Politique de confidentialité
+              <Link
+                href={t("legal.privacyPolicy.href")}
+                className="text-gray-300 hover:text-[#FF8200] text-sm transition-colors duration-200"
+              >
+                {t("legal.privacyPolicy.label")}
               </Link>
-              <Link href="#" className="text-gray-300 hover:text-[#FF8200] text-sm transition-colors duration-200">
-                Conditions d'utilisation
+              <Link
+                href={t("legal.terms.href")}
+                className="text-gray-300 hover:text-[#FF8200] text-sm transition-colors duration-200"
+              >
+                {t("legal.terms.label")}
               </Link>
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

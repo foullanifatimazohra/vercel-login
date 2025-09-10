@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +17,8 @@ import {
 } from "lucide-react";
 
 export function Contact() {
+  const t = useTranslations("contact");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,9 +40,7 @@ export function Contact() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -47,21 +48,15 @@ export function Contact() {
 
       if (response.ok) {
         setSubmitStatus("success");
-        setStatusMessage(data.message);
-        // Reset form on success
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
+        setStatusMessage(data.message || t("form.success"));
+        setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         setSubmitStatus("error");
-        setStatusMessage(data.error || "Une erreur est survenue");
+        setStatusMessage(data.error || t("form.error"));
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
-      setStatusMessage("Erreur de connexion. Veuillez réessayer.");
+      setStatusMessage(t("form.connectionError"));
     } finally {
       setIsSubmitting(false);
     }
@@ -70,37 +65,32 @@ export function Contact() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Adresse",
-      details:
-        "Cité AADL 416 Logt. Gué de Constantine, Bat S01, Kouba – Alger (16055)",
+      title: t("info.address.title"),
+      details: t("info.address.details"),
       color: "bg-blue-500",
     },
     {
       icon: Phone,
-      title: "Téléphone",
-      details:
-        "+213 (0) 23 53 51 13\n+213 (0) 555 777 289\n+213 (0) 774 244 459",
+      title: t("info.phone.title"),
+      details: t("info.phone.details"),
       color: "bg-green-500",
     },
     {
       icon: Mail,
-      title: "Email",
-      details: "contact@weoneservices.dz\ncontact@weoneit.net",
+      title: t("info.email.title"),
+      details: t("info.email.details"),
       color: "bg-purple-500",
     },
     {
       icon: Clock,
-      title: "Horaires",
-      details: "Dim-Jeu: 9h-17h",
+      title: t("info.hours.title"),
+      details: t("info.hours.details"),
       color: "bg-orange-500",
     },
   ];
@@ -110,21 +100,20 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#031e32] mb-6">
-            Contactez-nous
+            {t("title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto text-pretty">
-            Prêt à démarrer votre projet ? Notre équipe est là pour vous
-            accompagner. Contactez-nous dès aujourd'hui pour discuter de vos
-            besoins.
+            {t("description")}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
+          {/* Formulaire */}
           <div className="lg:col-span-2">
             <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="text-2xl text-[#031e32]">
-                  Envoyez-nous un message
+                  {t("form.title")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -152,7 +141,7 @@ export function Contact() {
                         htmlFor="name"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Nom complet
+                        {t("form.name")}
                       </label>
                       <Input
                         id="name"
@@ -170,7 +159,7 @@ export function Contact() {
                         htmlFor="email"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Email
+                        {t("form.email")}
                       </label>
                       <Input
                         id="email"
@@ -189,7 +178,7 @@ export function Contact() {
                       htmlFor="subject"
                       className="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Sujet
+                      {t("form.subject")}
                     </label>
                     <Input
                       id="subject"
@@ -207,12 +196,12 @@ export function Contact() {
                       htmlFor="message"
                       className="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Message
+                      {t("form.message")}
                     </label>
                     <Textarea
                       id="message"
                       name="message"
-                      rows={6}
+                      rows={20}
                       required
                       value={formData.message}
                       onChange={handleChange}
@@ -226,13 +215,14 @@ export function Contact() {
                     disabled={isSubmitting}
                     className="w-full bg-[#FF8200] hover:bg-[#ff9b33] text-white disabled:opacity-50"
                   >
-                    {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+                    {isSubmitting ? t("form.sending") : t("form.submit")}
                   </Button>
                 </form>
               </CardContent>
             </Card>
           </div>
 
+          {/* Infos contact */}
           <div className="space-y-6">
             {contactInfo.map((info, index) => (
               <Card
@@ -257,18 +247,16 @@ export function Contact() {
               </Card>
             ))}
 
+            {/* Bloc d'aide */}
             <Card className="bg-gradient-to-br from-[#FF8200] to-[#ffc180] text-white">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3">Besoin d'aide ?</h3>
-                <p className="mb-4 opacity-90">
-                  Notre équipe est disponible pour répondre à toutes vos
-                  questions et vous guider dans vos projets.
-                </p>
+                <h3 className="text-xl font-bold mb-3">{t("help.title")}</h3>
+                <p className="mb-4 opacity-90">{t("help.description")}</p>
                 <Button
                   variant="secondary"
                   className="bg-white text-[#FF8200] hover:bg-gray-100"
                 >
-                  Prendre rendez-vous
+                  {t("help.cta")}
                 </Button>
               </CardContent>
             </Card>
