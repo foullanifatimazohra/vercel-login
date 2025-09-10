@@ -1,0 +1,8 @@
+{
+  "hero": {
+    "title": " Unlock potential, <span className=\"text-[#FF8200]\">Build the future!</span>",
+    "description": "WeOne Services vous accompagne dans la réalisation de vos projets d'innovation. Incubateur, accélérateur, coworking et formations pour faire évoluer votre entreprise.",
+    "cta": "Découvrir nos services",
+    "contactUs": "Nous contacter"
+  }
+}
