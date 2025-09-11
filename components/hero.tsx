@@ -12,7 +12,7 @@ export async function Hero() {
       id="home"
       className="pt-16 bg-gradient-to-br from-[#031e32] via-[#354b5b] to-[#031e32] text-white"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
           <div className="space-y-8">
@@ -107,7 +107,7 @@ export async function Hero() {
                     .raw("join.features")
                     .map((feature: string, idx: number) => (
                       <li key={idx} className="flex items-center">
-                        <div className="w-2 h-2 bg-[#FF8200] rounded-full mr-3"></div>
+                        <div className="w-2 h-2 bg-[#FF8200] rounded-full mr-3 rtl:ml-3"></div>
                         {feature}
                       </li>
                     ))}

@@ -33,7 +33,7 @@ export async function Footer() {
               <img
                 src={t("company.logo")}
                 alt={t("company.name")}
-                className="h-8 w-8 mr-3"
+                className="h-8 w-8 mr-3 "
               />
               {t("company.name").split(" ")[0]}{" "}
               <span className="text-[#FF8200]">
@@ -45,11 +45,11 @@ export async function Footer() {
             </p>
             <div className="space-y-2">
               <div className="flex items-start text-sm text-gray-300">
-                <MapPin className="h-4 w-4 mr-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
+                <MapPin className="h-4 w-4 mr-2 rtl:ml-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
                 <span>{t("company.address")}</span>
               </div>
               <div className="flex items-start text-sm text-gray-300">
-                <Phone className="h-4 w-4 mr-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
+                <Phone className="h-4 w-4 mr-2 rtl:ml-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
                 <div>
                   {t
                     .raw("company.phones")
@@ -59,7 +59,7 @@ export async function Footer() {
                 </div>
               </div>
               <div className="flex items-start text-sm text-gray-300">
-                <Mail className="h-4 w-4 mr-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
+                <Mail className="h-4 w-4 mr-2 rtl:ml-2 text-[#FF8200] mt-0.5 flex-shrink-0" />
                 <div>
                   {t
                     .raw("company.emails")

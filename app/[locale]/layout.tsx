@@ -25,16 +25,27 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
+  // detect RTL locales (add more if needed)
+  const isRTL = locale === "ar";
+
   return (
-    <html lang={locale}>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <NextIntlClientProvider>
-          <Suspense fallback={null}>{children}</Suspense>
-        </NextIntlClientProvider>
+    <html lang={locale} dir={isRTL ? "rtl" : "ltr"}>
+      <body
+        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${
+          isRTL ? "rtl" : ""
+        }`}
+      >
+        <Suspense fallback={null}>
+          <NextIntlClientProvider locale={locale}>
+            {children}
+          </NextIntlClientProvider>
+        </Suspense>
+
         <Analytics />
       </body>
     </html>

@@ -201,12 +201,12 @@ export function Contact() {
                     <Textarea
                       id="message"
                       name="message"
-                      rows={20}
+                      rows={10}
                       required
                       value={formData.message}
                       onChange={handleChange}
                       disabled={isSubmitting}
-                      className="border-gray-300 focus:border-[#FF8200] focus:ring-[#FF8200]"
+                      className="border-gray-300 h-[200px] focus:border-[#FF8200] focus:ring-[#FF8200]"
                     />
                   </div>
                   <Button
@@ -231,7 +231,9 @@ export function Contact() {
               >
                 <CardContent className="p-6">
                   <div className="flex items-center">
-                    <div className={`${info.color} p-3 rounded-lg mr-4`}>
+                    <div
+                      className={`${info.color} p-3 rounded-lg mr-4 rtl:ml-4`}
+                    >
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>

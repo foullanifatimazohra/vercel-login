@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import { LanguageSwitcher } from "./ui/language-switcher";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +35,7 @@ export function Header() {
           </div>
 
           {/* Navigation Desktop */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8">
             {navigation.map((item, index) => (
               <Link
                 key={index}
@@ -47,7 +48,8 @@ export function Header() {
           </nav>
 
           {/* CTA Desktop */}
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex gap-5">
+            <LanguageSwitcher />
             <Link
               href="#contact"
               onClick={() => setIsMenuOpen(false)}
@@ -58,7 +60,7 @@ export function Header() {
           </div>
 
           {/* Menu Mobile Toggle */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="icon"
@@ -75,7 +77,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
               {navigation.map((item, index) => (
                 <Link
@@ -87,7 +89,8 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <div className="px-3 py-2">
+              <div className="px-3 py-2 flex gap-5">
+                <LanguageSwitcher />
                 <Link
                   href="#contact"
                   onClick={() => setIsMenuOpen(false)}

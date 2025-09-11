@@ -1,5 +1,287 @@
 {
   "hero": {
-    "title": "Hello world!"
+    "title": "Libérez le potentiel, <span class=\"text-[#FF8200]\">Construisez l’avenir !</span>",
+    "description": "WeOne Services vous accompagne dans la réalisation de vos projets d'innovation. Incubateur, accélérateur, coworking et formations pour faire évoluer votre entreprise.",
+    "cta": {
+      "label": "Découvrir nos services",
+      "href": "#services"
+    },
+    "contactUs": {
+      "label": "Nous contacter",
+      "href": "#contact"
+    },
+    "ambition": "Notre ambition ...",
+    "stats": {
+      "startups": {
+        "value": "50+",
+        "label": "Startups accompagnées"
+      },
+      "experts": {
+        "value": "100+",
+        "label": "Experts consultants"
+      },
+      "success": {
+        "value": "95%",
+        "label": "Taux de réussite"
+      }
+    },
+    "join": {
+      "title": "Rejoignez l'écosystème WeOne",
+      "features": [
+        "Accompagnement personnalisé",
+        "Réseau d'experts et mentors",
+        "Espaces de coworking modernes",
+        "Formations spécialisées"
+      ]
+    }
+  },
+  "about": {
+    "title": "Weone Services – Libérer le potentiel, bâtir l'avenir",
+    "description": "Née d'une ambition audacieuse et concrétisée en société en 2025, Weone Services s'impose comme un acteur engagé dans le développement des entreprises, des startups et des talents. Plus qu'une société, nous sommes un catalyseur de réussite, réunissant expertise, innovation et accompagnement stratégique. "
+  },
+  "services": {
+    "title": "Nos Services",
+    "description": "Découvrez notre gamme complète de services conçus pour accompagner votre croissance et votre réussite entrepreneuriale.",
+    "cta": "En savoir plus",
+    "list": [
+      {
+        "title": "Incubateur / Accélérateur",
+        "items": [
+          {
+            "title": "Accompagnement",
+            "description": "Suivi personnalisé de votre projet"
+          },
+          { "title": "Encadrement", "description": "Mentorat par des experts" },
+          {
+            "title": "Espace de travail",
+            "description": "Bureaux équipés et modernes"
+          },
+          { "title": "Process", "description": "Méthodologies éprouvées" },
+          {
+            "title": "Candidature",
+            "description": "Processus de sélection transparent"
+          }
+        ]
+      },
+      {
+        "title": "Coworking Space",
+        "items": [
+          {
+            "title": "Packs & offres",
+            "description": "Formules adaptées à vos besoins"
+          },
+          {
+            "title": "Services annexes",
+            "description": "Services complémentaires"
+          },
+          {
+            "title": "Avantages",
+            "description": "Bénéfices exclusifs membres"
+          },
+          {
+            "title": "Special startups",
+            "description": "Offres dédiées aux startups"
+          },
+          { "title": "Formulaire", "description": "Inscription simplifiée" }
+        ]
+      },
+      {
+        "title": "Formations",
+        "items": [
+          {
+            "title": "Séminaires Techniques",
+            "description": "Formation technique avancée"
+          },
+          {
+            "title": "Management",
+            "description": "Leadership et gestion d'équipe"
+          },
+          {
+            "title": "Soft Skills",
+            "description": "Compétences comportementales"
+          },
+          {
+            "title": "IT & AI",
+            "description": "Technologies et intelligence artificielle"
+          },
+          { "title": "E-learning", "description": "Formation en ligne" },
+          { "title": "Langues", "description": "Apprentissage des langues" }
+        ]
+      },
+      {
+        "title": "Conseil & Assistance",
+        "items": [
+          {
+            "title": "Appro & Contrats",
+            "description": "Gestion des approvisionnements"
+          },
+          {
+            "title": "Budgets & Recouvrement",
+            "description": "Gestion financière"
+          },
+          {
+            "title": "Appels d'offres",
+            "description": "Accompagnement marchés publics"
+          },
+          { "title": "Conseil fiscal", "description": "Optimisation fiscale" },
+          {
+            "title": "Droit d'affaires",
+            "description": "Conseil juridique entreprise"
+          },
+          {
+            "title": "Financement & Partenariat",
+            "description": "Assistance et accompagnement pour obtention de crédits bancaires ou des partenariats stratégiques"
+          }
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "title": "Notre Écosystème",
+    "description": "Rejoignez un écosystème dynamique composé de partenaires, d'experts et d'investisseurs engagés dans votre réussite.",
+    "categories": [
+      {
+        "title": "Nos Partenaires",
+        "description": "Réseau de partenaires stratégiques pour accompagner votre croissance",
+        "benefits": [
+          "Accès à un réseau étendu",
+          "Collaborations stratégiques",
+          "Opportunités de développement",
+          "Synergies d'affaires"
+        ]
+      },
+      {
+        "title": "Nos Consultants & Experts",
+        "description": "Équipe d'experts qualifiés dans tous les domaines d'activité",
+        "benefits": [
+          "Expertise multisectorielle",
+          "Accompagnement personnalisé",
+          "Conseils stratégiques",
+          "Formation spécialisée"
+        ]
+      },
+      {
+        "title": "Investisseurs & Sponsors",
+        "description": "Réseau d'investisseurs pour financer vos projets innovants",
+        "benefits": [
+          "Financement de projets",
+          "Capital de développement",
+          "Accompagnement financier",
+          "Mise en relation investisseurs"
+        ]
+      }
+    ],
+    "ctaCategory": "Rejoindre le réseau",
+    "highlight": {
+      "title": "Prêt à rejoindre notre écosystème ?",
+      "description": "Connectez-vous avec des entrepreneurs, des experts et des investisseurs partageant votre vision.",
+      "cta": "Devenir partenaire"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "description": "Prêt à démarrer votre projet ? Notre équipe est là pour vous accompagner. Contactez-nous dès aujourd'hui pour discuter de vos besoins.",
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": "Nom complet",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "sending": "Envoi en cours...",
+      "submit": "Envoyer le message",
+      "success": "Votre message a été envoyé avec succès.",
+      "error": "Une erreur est survenue. Veuillez réessayer.",
+      "connectionError": "Erreur de connexion. Veuillez réessayer."
+    },
+    "info": {
+      "address": {
+        "title": "Adresse",
+        "details": "Cité AADL 416 Logt. Gué de Constantine, Bat S01, Kouba – Alger (16055)"
+      },
+      "phone": {
+        "title": "Téléphone",
+        "details": "+213 (0) 23 53 51 13\n+213 (0) 555 777 289\n+213 (0) 774 244 459"
+      },
+      "email": {
+        "title": "Email",
+        "details": "contact@weoneservices.dz\ncontact@weoneit.net"
+      },
+      "hours": {
+        "title": "Horaires",
+        "details": "Dim-Jeu: 9h-17h"
+      }
+    },
+    "help": {
+      "title": "Besoin d'aide ?",
+      "description": "Notre équipe est disponible pour répondre à toutes vos questions et vous guider dans vos projets.",
+      "cta": "Prendre rendez-vous"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "WeOne Services",
+      "logo": "/weone-services-logo.jpg",
+      "description": "Votre partenaire de confiance pour l'innovation et la croissance entrepreneuriale en Algérie.",
+      "address": "Cité AADL 416 Logt. Gué de Constantine, Bat S01, Kouba – Alger (16055)",
+      "phones": [
+        "+213 (0) 23 53 51 13",
+        "+213 (0) 555 777 289",
+        "+213 (0) 774 244 459"
+      ],
+      "emails": ["contact@weoneservices.dz", "contact@weoneit.net"]
+    },
+    "services": {
+      "title": "Nos Services",
+      "items": [
+        { "label": "Incubateur/Accélérateur", "href": "#services" },
+        { "label": "Coworking Space", "href": "#services" },
+        { "label": "Formations", "href": "#services" },
+        { "label": "Conseil & Assistance", "href": "#services" }
+      ]
+    },
+    "quickLinks": {
+      "title": "Liens Rapides",
+      "items": [
+        { "label": "À propos", "href": "#about" },
+        { "label": "Services", "href": "#services" },
+        { "label": "Partenaires", "href": "#partners" },
+        { "label": "Contact", "href": "#contact" }
+      ]
+    },
+    "social": {
+      "title": "Restez connecté",
+      "description": "Suivez-nous sur les réseaux sociaux pour ne rien manquer de nos actualités.",
+      "links": [
+        { "label": "Facebook", "href": "#" },
+        { "label": "Twitter", "href": "#" },
+        { "label": "LinkedIn", "href": "#" },
+        { "label": "Instagram", "href": "#" }
+      ]
+    },
+    "legal": {
+      "copyright": "© 2025 WeOne Services. Tous droits réservés.",
+      "privacyPolicy": {
+        "label": "Politique de confidentialité",
+        "href": "#"
+      },
+      "terms": {
+        "label": "Conditions d'utilisation",
+        "href": "#"
+      }
+    }
+  },
+  "header": {
+    "company": {
+      "name": "WeOne Services",
+      "logo": "/weone-services-logo.jpg"
+    },
+    "navigation": [
+      { "label": "Accueil", "href": "#home" },
+      { "label": "À propos", "href": "#about" },
+      { "label": "Services", "href": "#services" },
+      { "label": "Partenaires", "href": "#partners" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "cta": "Nous contacter"
   }
 }

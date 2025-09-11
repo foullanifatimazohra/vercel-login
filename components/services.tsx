@@ -73,10 +73,10 @@ export async function Services() {
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center mb-4">
-                    <div className={`${color} p-3 rounded-lg mr-4`}>
+                    <div className={`${color} p-3 rounded-lg mr-4 rtl:ml-4`}>
                       <Icon className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="md:text-2xl text-xl text-[#031e32]">
+                    <CardTitle className="text-2xl text-wrap text-[#031e32]">
                       {service.title}
                     </CardTitle>
                   </div>
@@ -90,7 +90,7 @@ export async function Services() {
                           key={itemIndex}
                           className="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors"
                         >
-                          <div className="bg-[#FF8200] p-2 rounded-md mr-3 flex-shrink-0">
+                          <div className="bg-[#FF8200] p-2 rounded-md mr-3 rtl:ml-3 flex-shrink-0">
                             <ItemIcon className="h-4 w-4 text-white" />
                           </div>
                           <div>

@@ -54,7 +54,7 @@ export async function Partners() {
                           key={benefitIndex}
                           className="flex items-center text-sm"
                         >
-                          <div className="w-2 h-2 bg-[#FF8200] rounded-full mr-3 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-[#FF8200] rounded-full mr-3 rtl:ml-3 flex-shrink-0"></div>
                           <span className="text-gray-700">{benefit}</span>
                         </li>
                       )
