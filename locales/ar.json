@@ -190,7 +190,7 @@
   "footer": {
     "company": {
       "name": "WeOne Services",
-      "logo": "/weone-services-logo.jpg",
+      "logo": "/weone-services-logo.png",
       "description": "شريكك الموثوق للابتكار والنمو الريادي في الجزائر.",
       "address": "حي عدل 416 مسكن. وادي قريش، عمارة S01، القبة – الجزائر (16055)",
       "phones": [
@@ -243,7 +243,7 @@
   "header": {
     "company": {
       "name": "WeOne Services",
-      "logo": "/weone-services-logo.jpg"
+      "logo": "/weone-services-logo.png"
     },
     "navigation": [
       { "label": "الرئيسية", "href": "#home" },
@@ -253,5 +253,43 @@
       { "label": "اتصل بنا", "href": "#contact" }
     ],
     "cta": "اتصل بنا"
+  },
+  "nosEspaces": {
+    "title": "مساحاتنا",
+    "description": "اكتشف مساحاتنا العصرية والملهمة المصممة لتعزيز الإبداع والتعاون والإنتاجية.",
+    "cta": {
+      "label": "شاهد المزيد من الصور",
+      "href": "#gallery"
+    },
+    "images": [
+      {
+        "src": "/coworking/c-1.jpg",
+        "alt": "مساحة عمل مشتركة عصرية مع مكاتب وحواسيب"
+      },
+      {
+        "src": "/coworking/c-2.jpg",
+        "alt": "قاعة اجتماعات مع عرض تقديمي"
+      },
+      {
+        "src": "/coworking/c-3.jpg",
+        "alt": "مكتب خاص بأثاث عصري"
+      },
+      {
+        "src": "/coworking/c-4.jpg",
+        "alt": "مساحة عمل تعاونية"
+      },
+      {
+        "src": "/coworking/c-5.jpg",
+        "alt": "قاعة اجتماعات عصرية"
+      },
+      {
+        "src": "/coworking/c-6.jpg",
+        "alt": "قاعة تدريب"
+      },
+      {
+        "src": "/coworking/c-7.jpg",
+        "alt": "ممر عصري"
+      }
+    ]
   }
 }

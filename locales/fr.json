@@ -220,7 +220,7 @@
   "footer": {
     "company": {
       "name": "WeOne Services",
-      "logo": "/weone-services-logo.jpg",
+      "logo": "/weone-services-logo.png",
       "description": "Votre partenaire de confiance pour l'innovation et la croissance entrepreneuriale en Algérie.",
       "address": "Cité AADL 416 Logt. Gué de Constantine, Bat S01, Kouba – Alger (16055)",
       "phones": [
@@ -273,7 +273,7 @@
   "header": {
     "company": {
       "name": "WeOne Services",
-      "logo": "/weone-services-logo.jpg"
+      "logo": "/weone-services-logo.png"
     },
     "navigation": [
       { "label": "Accueil", "href": "#home" },
@@ -283,5 +283,43 @@
       { "label": "Contact", "href": "#contact" }
     ],
     "cta": "Nous contacter"
+  },
+  "nosEspaces": {
+    "title": "Nos Espaces",
+    "description": "Découvrez nos espaces modernes et inspirants conçus pour favoriser la créativité, la collaboration et la productivité.",
+    "cta": {
+      "label": "Voir plus de photos",
+      "href": "#gallery"
+    },
+    "images": [
+      {
+        "src": "/coworking/c-1.jpg",
+        "alt": "Espace coworking moderne avec bureaux et ordinateurs"
+      },
+      {
+        "src": "/coworking/c-2.jpg",
+        "alt": "Salle de réunion avec présentation"
+      },
+      {
+        "src": "/coworking/c-3.jpg",
+        "alt": "Bureau privé avec mobilier moderne"
+      },
+      {
+        "src": "/coworking/c-4.jpg",
+        "alt": "Espace de travail collaboratif"
+      },
+      {
+        "src": "/coworking/c-5.jpg",
+        "alt": "Salle de réunion moderne"
+      },
+      {
+        "src": "/coworking/c-6.jpg",
+        "alt": "Salle de formation"
+      },
+      {
+        "src": "/coworking/c-7.jpg",
+        "alt": "Couloir moderne"
+      }
+    ]
   }
 }
