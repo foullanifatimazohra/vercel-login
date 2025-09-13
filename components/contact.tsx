@@ -210,6 +210,7 @@ export function Contact() {
                     />
                   </div>
                   <Button
+                    aria-label="Submit"
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
@@ -255,6 +256,7 @@ export function Contact() {
                 <h3 className="text-xl font-bold mb-3">{t("help.title")}</h3>
                 <p className="mb-4 opacity-90">{t("help.description")}</p>
                 <Button
+                  aria-label="Help"
                   variant="secondary"
                   className="bg-white text-[#FF8200] hover:bg-gray-100"
                 >

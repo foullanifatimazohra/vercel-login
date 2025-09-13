@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,9 +21,11 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img
+              <Image
                 src={t("company.logo")}
                 alt={t("company.name")}
+                width={40}
+                height={40}
                 className="h-10 w-10 mr-3"
               />
               <span className="text-2xl font-bold text-[#031e32]">
@@ -62,6 +65,7 @@ export function Header() {
           {/* Menu Mobile Toggle */}
           <div className="lg:hidden">
             <Button
+              aria-label="Close"
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -107,6 +107,7 @@ export async function Services() {
                   </div>
                   <div className="mt-6">
                     <Button
+                      aria-label="call to action"
                       className="w-full text-white border-0 hover:!bg-[#ff9b33]"
                       style={{ backgroundColor: "#FF8200", color: "#ffffff" }}
                     >

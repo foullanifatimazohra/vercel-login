@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -74,9 +75,11 @@ export function NosEspaces() {
               `}
                   onClick={() => setSelectedImageIndex(index)}
                 >
-                  <img
-                    src={image.src || "/placeholder.svg"}
+                  <Image
+                    src={image.src || "/placeholder.jpg"}
                     alt={image.alt}
+                    width={400}
+                    height={256}
                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
@@ -102,15 +105,15 @@ export function NosEspaces() {
           onClick={() => setSelectedImageIndex(null)}
         >
           <div className="relative max-w-4xl max-h-full">
-            <button
+            <Button
               onClick={() => setSelectedImageIndex(null)}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
               aria-label="Fermer"
             >
               <X size={32} />
-            </button>
+            </Button>
 
-            <button
+            <Button
               onClick={(e) => {
                 e.stopPropagation();
                 navigateToPrevious();
@@ -119,9 +122,9 @@ export function NosEspaces() {
               aria-label="Image précédente"
             >
               <ChevronLeft size={24} />
-            </button>
+            </Button>
 
-            <button
+            <Button
               onClick={(e) => {
                 e.stopPropagation();
                 navigateToNext();
@@ -130,12 +133,14 @@ export function NosEspaces() {
               aria-label="Image suivante"
             >
               <ChevronRight size={24} />
-            </button>
+            </Button>
 
-            <img
+            <Image
               src={
-                workspaceImages[selectedImageIndex].src || "/placeholder.svg"
+                workspaceImages[selectedImageIndex].src || "/placeholder.jpg"
               }
+              width={1000}
+              height={800}
               alt={workspaceImages[selectedImageIndex].alt}
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}

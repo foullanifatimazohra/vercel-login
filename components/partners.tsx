@@ -60,7 +60,10 @@ export async function Partners() {
                       )
                     )}
                   </ul>
-                  <Button className="w-full bg-[#031e32] hover:bg-[#354b5b] text-white">
+                  <Button
+                    aria-label="call to action"
+                    className="w-full bg-[#031e32] hover:bg-[#354b5b] text-white"
+                  >
                     {t("ctaCategory")}
                   </Button>
                 </CardContent>
@@ -77,6 +80,7 @@ export async function Partners() {
               {t("highlight.description")}
             </p>
             <Button
+              aria-label="highlight"
               size="lg"
               className="bg-[#FF8200] hover:bg-[#ff9b33] text-white"
             >

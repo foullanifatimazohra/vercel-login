@@ -31,6 +31,7 @@ export async function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href={t("cta.href")}>
                 <Button
+                  aria-label="call to action"
                   size="lg"
                   className="bg-[#FF8200] hover:bg-[#ff9b33] text-white"
                 >

@@ -8,6 +8,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 export async function Footer() {
@@ -30,9 +31,11 @@ export async function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center text-2xl font-bold mb-4">
-              <img
+              <Image
                 src={t("company.logo")}
                 alt={t("company.name")}
+                height={32}
+                width={32}
                 className="h-8 w-8 mr-3 "
               />
               {t("company.name").split(" ")[0]}{" "}

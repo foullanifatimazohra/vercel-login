@@ -1,6 +1,7 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale } from "next-intl";
+import { Button } from "./button";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useState } from "react";
@@ -20,7 +21,8 @@ export const LanguageSwitcher = () => {
   return (
     <div className="relative inline-block text-left">
       {/* Dropdown Button */}
-      <button
+      <Button
+        aria-label="Language switch"
         onClick={() => setIsOpen(!isOpen)}
         className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700  hover:bg-gray-50 focus:outline-none"
       >
@@ -37,24 +39,25 @@ export const LanguageSwitcher = () => {
             clipRule="evenodd"
           />
         </svg>
-      </button>
+      </Button>
 
       {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute right-0 mt-2 w-28 rounded-md shadow-md bg-white ring-1">
           <div className="py-1">
             {routing.locales.map((lang: string) => (
-              <button
+              <Button
+                aria-label="locale language"
                 key={lang}
                 onClick={() => handleLanguageChange(lang)}
-                className={`block w-full text-left px-4 py-2 text-sm ${
+                className={`block w-full text-left px-4 py-2 text-sm bg-white font-medium text-gray-700  hover:bg-gray-50 focus:outline-none ${
                   lang === locale
                     ? "bg-gray-100 font-semibold"
                     : "hover:bg-gray-100"
                 }`}
               >
                 {lang.toUpperCase()}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
